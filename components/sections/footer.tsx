@@ -6,8 +6,7 @@ export function Footer() {
   return (
     <footer className="bg-cream px-4 pb-8 pt-16 sm:px-6">
       <div className="mx-auto max-w-[1320px]">
-        <div className="relative left-1/2 w-screen -translate-x-1/2 overflow-hidden pt-[0.5em]"><p className="drift display whitespace-nowrap pb-[0.18em] text-[clamp(56px,11vw,176px)] leading-[1.05]"><span className="echo" data-text="Marketing con propósito">Marketing con propósito</span></p></div>
-        <div className="mt-14 grid gap-10 border-t border-cherry/15 pt-10 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           <div>
             <Logo className="items-start" />
             <p className="mt-4 max-w-xs text-sm text-muted">{site.description}</p>

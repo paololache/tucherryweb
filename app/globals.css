@@ -137,10 +137,6 @@ p { text-wrap: pretty; }
   /* Barra de progreso de lectura */
   .scroll-progress { animation: grow-x linear both; animation-timeline: scroll(root); }
 
-  /* Texto gigante del footer que se desliza con el scroll */
-  .drift { animation: drift linear both; animation-timeline: view(); animation-range: entry 0% exit 0%; }
-  @keyframes drift { from { transform: translateX(12%); } to { transform: translateX(-8%); } }
-
   /* Imagen que acompaña servicios: leve parallax */
   .parallax-img { animation: parallax linear both; animation-timeline: view(); }
   @keyframes parallax { from { transform: translateY(-4%) scale(1.08); } to { transform: translateY(4%) scale(1.08); } }
@@ -241,9 +237,3 @@ p { text-wrap: pretty; }
   .strip { animation: strip-open linear both; animation-timeline: view(); animation-range: entry 0% cover 35%; }
   @keyframes strip-open { from { clip-path: inset(47% 0 47% 0 round 16px); } to { clip-path: inset(0 0 0 0 round 16px); } }
 }
-
-/* 6. Logotipo con eco: copias apiladas que se desvanecen hacia arriba */
-.echo { position: relative; display: inline-block; }
-.echo::before, .echo::after { content: attr(data-text); position: absolute; left: 0; right: 0; white-space: nowrap; pointer-events: none; }
-.echo::before { top: -0.42em; opacity: 0.16; clip-path: inset(0 0 52% 0); }
-.echo::after { top: -0.22em; opacity: 0.38; clip-path: inset(0 0 40% 0); }
