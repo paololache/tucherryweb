@@ -61,6 +61,8 @@ body {
 
 /* Titulares: display family en negrita, sentence case */
 .display { font-family: var(--font-display); font-weight: 700; letter-spacing: -0.02em; word-spacing: 0.05em; line-height: 0.95; }
+/* Variante más fina y apretada (de Quiénes somos a Servicios): Figtree no tiene eje de ancho */
+.display-slim { font-weight: 500; letter-spacing: -0.035em; word-spacing: 0; }
 h1, h2, h3, .display { text-wrap: balance; }
 p { text-wrap: pretty; }
 /* Overline: único uso de mayúsculas, eco de la línea STUDIO del logotipo */

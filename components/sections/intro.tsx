@@ -47,7 +47,7 @@ export function About() {
           <span>[ quiénes somos ]</span>
           <span>[ 01 ]</span>
         </div>
-        <p className="display mt-10 max-w-[1180px] text-[clamp(30px,4.6vw,72px)] leading-[1.04] text-wine md:mt-16">
+        <p className="display display-slim mt-10 max-w-[1180px] text-[clamp(30px,4.6vw,72px)] leading-[1.04] text-wine md:mt-16">
           <Masked
             text="[_Tu_Cherry_Studio_] es un estudio creativo construido sobre → propósito, intención y cercanía FOCO En un mundo lleno de ruido, ayudamos a las marcas a bajar el volumen, afinar su mensaje y decir exactamente lo que importa."
             mark={{ "[_Tu_Cherry_Studio_]": "hl", "→": "arrow", FOCO: "tag" }}
@@ -61,7 +61,7 @@ export function About() {
           ].map(([t, x], i) => (
             <div key={t} className="reveal border-t border-cherry/20 pt-4" style={{ ["--d" as string]: `${i * 0.1}s` }}>
               <p className="text-[13px] text-muted">[ {String(i + 1).padStart(2, "0")} ]</p>
-              <p className="display mt-1 text-[26px]">{t}</p>
+              <p className="display display-slim mt-1 text-[26px]">{t}</p>
               <p className="mt-1 text-muted">{x}</p>
             </div>
           ))}
@@ -85,7 +85,7 @@ export function Work() {
       </svg>
       <div className="mx-auto max-w-[1320px]">
         <div className="flex items-start justify-between">
-          <h2 id="trabajo-title" className="display text-[clamp(44px,7vw,112px)] leading-[0.9] text-cherry">
+          <h2 id="trabajo-title" className="display display-slim text-[clamp(44px,7vw,112px)] leading-[0.9] text-cherry">
             <Masked text="Así trabajamos" />
           </h2>
           <span className="text-[13px] text-muted">[ 02 ]</span>
@@ -109,7 +109,7 @@ export function Work() {
                   )}
                   <span className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-wine/80 to-transparent" aria-hidden />
                   <span className="absolute bottom-3 left-3 right-3 flex items-end justify-between gap-2 text-porcelain">
-                    <span className="display text-[18px] sm:text-[22px]">{s.title}</span>
+                    <span className="display display-slim text-[18px] sm:text-[22px]">{s.title}</span>
                     <ArrowUpRight className="size-5 shrink-0 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" aria-hidden />
                   </span>
                 </button>
@@ -120,7 +120,7 @@ export function Work() {
 
         <div className="mt-6 flex items-end justify-between gap-6 md:mt-8">
           <span className="text-[13px] text-muted">[ toca un servicio ]</span>
-          <p className="display text-right text-[clamp(44px,7vw,112px)] leading-[0.9] text-cherry">
+          <p className="display display-slim text-right text-[clamp(44px,7vw,112px)] leading-[0.9] text-cherry">
             <Masked text="con tu marca" />
           </p>
         </div>
@@ -138,7 +138,7 @@ export function Manifesto() {
           <span>[ nuestra mirada ]</span>
           <span>[ 03 ]</span>
         </div>
-        <h2 id="manifiesto-title" className="display mt-10 text-[clamp(34px,6.2vw,100px)] leading-[0.98] md:mt-14">
+        <h2 id="manifiesto-title" className="display display-slim mt-10 text-[clamp(34px,6.2vw,100px)] leading-[0.98] md:mt-14">
           <Masked
             text="La mejor forma de entender el [_marketing_con_propósito_] es ver tu propia marca → a través de nuestra mirada."
             mark={{ "[_marketing_con_propósito_]": "hl", "→": "arrow" }}

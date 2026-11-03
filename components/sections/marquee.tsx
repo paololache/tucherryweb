@@ -9,7 +9,7 @@ export function Marquee() {
           <ul key={k} aria-hidden={k === 1} className="flex shrink-0 animate-marquee items-center gap-8 group-hover:[animation-play-state:paused]">
             {WORDS.map((w) => (
               <li key={w} className="flex items-center gap-8">
-                <span className="display whitespace-nowrap text-[30px]">{w}</span>
+                <span className="display display-slim whitespace-nowrap text-[30px]">{w}</span>
                 <span className="size-2.5 rounded-full bg-cherry [animation:float_6s_ease-in-out_infinite_alternate]" aria-hidden />
               </li>
             ))}
