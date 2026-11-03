@@ -74,6 +74,8 @@ p { text-wrap: pretty; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+  /* Excepción: la cinta de servicios se mueve siempre, también en móviles con "reducir movimiento" */
+  .animate-marquee { animation-duration: var(--duration, 40s) !important; animation-iteration-count: infinite !important; }
 }
 
 /* ───────── Movimiento en CSS (sin JavaScript) ───────── */
