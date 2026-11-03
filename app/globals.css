@@ -1,11 +1,12 @@
 @import "tailwindcss";
 
 /* ───────── Tipografía (autoalojada, solo latin: incluye tildes y ñ) ─────────
-   Titulares: Plus Jakarta Sans · Texto: Inter. Ambas OFL (ver app/fonts). */
+   Titulares: Instrument Sans (variable, ejes wght + wdth) · Texto: Inter. Ambas OFL (ver app/fonts). */
 @font-face {
-  font-family: "Plus Jakarta Sans";
-  src: url("./fonts/jakarta.woff2") format("woff2-variations"), url("./fonts/jakarta.woff2") format("woff2");
-  font-weight: 200 800;
+  font-family: "Instrument Sans";
+  src: url("./fonts/instrument-sans.woff2") format("woff2-variations"), url("./fonts/instrument-sans.woff2") format("woff2");
+  font-weight: 400 700;
+  font-stretch: 75% 100%;
   font-style: normal;
   font-display: swap;
 }
@@ -37,7 +38,7 @@
   --color-cream: var(--cream);
   --color-muted: var(--muted);
 
-  --font-display: "Plus Jakarta Sans", "Lao MN", "Myriad Pro", "Segoe UI", system-ui, sans-serif;
+  --font-display: "Instrument Sans", "Lao MN", "Myriad Pro", "Segoe UI", system-ui, sans-serif;
   --font-text: "Inter", "Myriad Pro", "Segoe UI", system-ui, sans-serif;
   --font-sans: var(--font-text);
 
@@ -67,8 +68,8 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-/* Titulares: display family en negrita, sentence case */
-.display { font-family: var(--font-display); font-weight: 700; letter-spacing: -0.028em; word-spacing: 0.05em; line-height: 0.95; }
+/* Titulares: display family en peso medio y ancho reducido, sentence case */
+.display { font-family: var(--font-display); font-weight: 500; font-stretch: 88%; letter-spacing: -0.02em; word-spacing: 0.05em; line-height: 0.95; }
 h1, h2, h3, .display { text-wrap: balance; }
 p { text-wrap: pretty; }
 /* Overline: único uso de mayúsculas, eco de la línea STUDIO del logotipo */
