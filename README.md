@@ -8,8 +8,11 @@ Web de marketing de **Tu Cherry Studio** ("Marketing con propósito"), derivada 
 ```bash
 npm install
 npm run dev                     # http://localhost:3000
-STATIC_EXPORT=1 npm run build   # export estático en /out  (o `npx vercel --prod`)
+STATIC_EXPORT=1 npm run build   # export estático en /out
 ```
+
+## Desplegar en Vercel
+Importa el repositorio en Vercel: detecta Next.js y no necesita `vercel.json` ni variables de entorno. Cada push a `main` despliega a producción. No definas `STATIC_EXPORT` en Vercel.
 
 ## Editar contenido
 Todo está en `lib/site.ts`: servicios (qué incluye, ideal para), planes del hero, sectores, pasos del proceso y datos de contacto (marcados con TODO).
