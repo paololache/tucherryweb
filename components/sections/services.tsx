@@ -24,7 +24,7 @@ export function Services() {
         <div className="mb-10 flex flex-col justify-between gap-4 md:flex-row md:items-end">
           <div>
             <p className="eyebrow text-muted">Servicios</p>
-            <h2 id="servicios-title" className="display display-slim mt-3 max-w-3xl text-[clamp(36px,4.8vw,68px)] leading-[1.08]"><SplitText text={content.servicesHead.title} /></h2>
+            <h2 id="servicios-title" className="display display-slim mt-3 max-w-3xl h-section"><SplitText text={content.servicesHead.title} /></h2>
           </div>
           <p className="max-w-sm text-muted">{content.servicesHead.aside}</p>
         </div>
@@ -51,7 +51,7 @@ export function Services() {
                       className="group flex w-full items-center gap-4 py-5 text-left sm:gap-6"
                     >
                       <span className="w-6 shrink-0 text-sm text-muted tabular-nums">{String(i + 1).padStart(2, "0")}</span>
-                      <span className={cn("display display-slim flex-1 text-[clamp(30px,3.6vw,52px)] leading-[1.05] transition-[transform,color] duration-300", open ? "translate-x-2" : "text-cherry/55 group-hover:text-cherry")}>
+                      <span className={cn("display display-slim flex-1 h-item transition-[transform,color] duration-300", open ? "translate-x-2" : "text-cherry/55 group-hover:text-cherry")}>
                         {s.title}
                       </span>
                       <span className={cn("grid size-10 shrink-0 place-items-center rounded-full border border-cherry/30 transition-transform duration-300", open && "rotate-45 border-cherry bg-cherry text-porcelain")} aria-hidden>

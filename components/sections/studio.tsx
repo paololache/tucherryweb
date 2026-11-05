@@ -12,7 +12,7 @@ export function Studio() {
     <section id="estudio" aria-labelledby="estudio-title" className="px-4 py-16 sm:px-6 md:py-24">
       <div className="mx-auto max-w-[1320px]">
         <h2 id="estudio-title" className="eyebrow text-muted">El estudio</h2>
-        <p className="display display-slim mt-4 max-w-3xl text-[clamp(30px,3.6vw,48px)]">{studio.title}</p>
+        <p className="display display-slim mt-4 max-w-3xl h-section">{studio.title}</p>
 
         <div className="mt-14 grid gap-4 md:grid-cols-3">
           {studio.values.map((v, i) => { const Icon = ICONS[i % ICONS.length]; return (
@@ -20,7 +20,7 @@ export function Studio() {
               <div className="grid size-11 place-items-center rounded-[12px] bg-butter transition-transform duration-500 group-hover:rotate-[-8deg] group-hover:scale-110">
                 <Icon className="size-5" strokeWidth={1.75} aria-hidden />
               </div>
-              <h3 className="display mt-5 text-[26px]">{v.title}</h3>
+              <h3 className="display display-slim mt-5 text-[22px]">{v.title}</h3>
               <p className="mt-2 text-muted">{v.text}</p>
             </div></div>
           ); })}

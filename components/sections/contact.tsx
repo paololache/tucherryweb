@@ -36,7 +36,7 @@ export function Contact() {
       <div className="mx-auto grid max-w-[1320px] gap-12 lg:grid-cols-[1fr_1.15fr]">
         <div className="reveal">
           <p className="eyebrow text-sage">Contacto</p>
-          <h2 id="contacto-title" className="display display-slim mt-3 text-[clamp(38px,5.4vw,80px)] leading-[1.05]"><SplitText text={content.contact.title} /></h2>
+          <h2 id="contacto-title" className="display display-slim mt-3 h-section"><SplitText text={content.contact.title} /></h2>
           <p className="mt-5 max-w-md text-lg text-sage">{content.contact.text}</p>
           <div className="mt-8 flex flex-col gap-3">
             <a href={`mailto:${site.email}`} className="inline-flex items-center gap-3 self-start text-lg hover:underline">
