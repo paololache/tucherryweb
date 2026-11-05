@@ -24,7 +24,7 @@ export function Services() {
         <div className="mb-10 flex flex-col justify-between gap-4 md:flex-row md:items-end">
           <div>
             <p className="eyebrow text-muted">Servicios</p>
-            <h2 id="servicios-title" className="display display-slim mt-3 max-w-3xl text-[clamp(44px,6vw,88px)] leading-[1.05]"><SplitText text={content.servicesHead.title} /></h2>
+            <h2 id="servicios-title" className="display display-slim mt-3 max-w-3xl text-[clamp(36px,4.8vw,68px)] leading-[1.08]"><SplitText text={content.servicesHead.title} /></h2>
           </div>
           <p className="max-w-sm text-muted">{content.servicesHead.aside}</p>
         </div>

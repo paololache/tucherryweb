@@ -48,7 +48,7 @@ export function About() {
           <span>[ quiénes somos ]</span>
           <span>[ 01 ]</span>
         </div>
-        <p className="display display-slim mt-10 max-w-[1180px] text-[clamp(28px,4vw,60px)] leading-[1.18] text-wine md:mt-16">
+        <p className="display display-slim mt-10 max-w-[1180px] text-[clamp(26px,3.4vw,50px)] leading-[1.2] text-wine md:mt-16">
           <Masked text={about.text} mark={about.mark} />
         </p>
         <div className="mt-14 grid gap-6 md:mt-20 md:grid-cols-3">
@@ -79,7 +79,7 @@ export function Work() {
       </svg>
       <div className="mx-auto max-w-[1320px]">
         <div className="flex items-start justify-between">
-          <h2 id="trabajo-title" className="display display-slim text-[clamp(44px,7vw,112px)] leading-[0.9] text-cherry">
+          <h2 id="trabajo-title" className="display display-slim text-[clamp(38px,5.6vw,86px)] leading-[0.95] text-cherry">
             <Masked text={content.work.title} />
           </h2>
           <span className="text-[13px] text-muted">[ 02 ]</span>
@@ -114,7 +114,7 @@ export function Work() {
 
         <div className="mt-6 flex items-end justify-between gap-6 md:mt-8">
           <span className="text-[13px] text-muted">[ toca un servicio ]</span>
-          <p className="display display-slim text-right text-[clamp(44px,7vw,112px)] leading-[0.9] text-cherry">
+          <p className="display display-slim text-right text-[clamp(38px,5.6vw,86px)] leading-[0.95] text-cherry">
             <Masked text={content.work.tail} />
           </p>
         </div>
@@ -133,7 +133,7 @@ export function Manifesto() {
           <span>[ nuestra mirada ]</span>
           <span>[ 03 ]</span>
         </div>
-        <h2 id="manifiesto-title" className="display display-slim mt-10 text-[clamp(34px,6.2vw,100px)] leading-[1.06] md:mt-14">
+        <h2 id="manifiesto-title" className="display display-slim mt-10 text-[clamp(30px,4.8vw,76px)] leading-[1.1] md:mt-14">
           <Masked
             text={manifesto.text}
             mark={manifesto.mark}

@@ -15,7 +15,7 @@ export function Process() {
       <div className="mx-auto grid max-w-[1320px] gap-10 lg:grid-cols-[1fr_1.3fr]">
         <div className="lg:sticky lg:top-28 lg:self-start">
           <p className="eyebrow text-sage">Cómo trabajamos</p>
-          <h2 id="proceso-title" className="display mt-3 text-[clamp(42px,5.4vw,80px)]"><SplitText text={process.title} /></h2>
+          <h2 id="proceso-title" className="display display-slim mt-3 text-[clamp(34px,4.4vw,62px)] leading-[1.05]"><SplitText text={process.title} /></h2>
           <p className="mt-8 max-w-md text-sage">{process.text}</p>
         </div>
 
@@ -29,7 +29,7 @@ export function Process() {
                   {i + 1}
                 </span>
                 <p className="eyebrow text-sage">Paso {i + 1} · {s.label}</p>
-                <h3 className="display mt-2 text-[34px] sm:text-[44px]">{s.title}</h3>
+                <h3 className="display display-slim mt-2 text-[28px] sm:text-[36px]">{s.title}</h3>
                 <p className="mt-3 max-w-xl text-sage">{s.text}</p>
                 <ul className="mt-5 flex flex-wrap gap-2">
                   {s.deliverables.map((d) => (

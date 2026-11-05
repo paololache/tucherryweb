@@ -33,7 +33,7 @@ export function Hero() {
         </div>
 
         <div className="hand-stage relative mt-6 md:mt-8">
-          <h1 id="hero-title" className="wave display relative z-10 cursor-default text-[clamp(64px,12.6vw,198px)]" aria-label={title.join(" ")}>
+          <h1 id="hero-title" className="wave display display-slim relative z-10 cursor-default text-[clamp(54px,10vw,156px)]" aria-label={title.join(" ")}>
             <span className="line-in block text-wine" style={d(0.15)}><SplitText text={title[0]} mode="chars" /></span>
             <span className="line-in block pl-[22%] text-wine sm:pl-[30%]" style={d(0.55)}><SplitText text={title[1]} mode="chars" start={starts[1]} /></span>
             <span className="line-in line-accent hl block pl-[4%] text-cherry sm:pl-[9%]" style={d(0.95)}><SplitText text={title[2]} mode="chars" start={starts[2]} /></span>

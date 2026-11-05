@@ -12,7 +12,7 @@ export function Studio() {
     <section id="estudio" aria-labelledby="estudio-title" className="px-4 py-16 sm:px-6 md:py-24">
       <div className="mx-auto max-w-[1320px]">
         <h2 id="estudio-title" className="eyebrow text-muted">El estudio</h2>
-        <p className="display mt-4 max-w-3xl text-[clamp(32px,4vw,56px)]">{studio.title}</p>
+        <p className="display display-slim mt-4 max-w-3xl text-[clamp(30px,3.6vw,48px)]">{studio.title}</p>
 
         <div className="mt-14 grid gap-4 md:grid-cols-3">
           {studio.values.map((v, i) => { const Icon = ICONS[i % ICONS.length]; return (
