@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
 import { RandomLetterSwapForward } from "@/components/ui/random-letter-swap";
 
 /* Texto con máscara: cada palabra sube desde detrás de su línea al entrar en pantalla */
-function Masked({ text, className, mark, hlClass = "font-semibold text-cherry", arrowClass = "text-cherry" }: { text: string; className?: string; mark?: Record<string, "hl" | "tag" | "arrow">; hlClass?: string; arrowClass?: string }) {
+function Masked({ text, className, mark, hlClass = "font-bold text-cherry", arrowClass = "text-cherry" }: { text: string; className?: string; mark?: Record<string, "hl" | "tag" | "arrow">; hlClass?: string; arrowClass?: string }) {
   const words = text.split(" ");
   return (
     <span className={cn("mask-words", className)} aria-label={text} role="text">
@@ -22,7 +22,7 @@ function Masked({ text, className, mark, hlClass = "font-semibold text-cherry", 
                 className={cn(
                   "mw",
                   kind === "hl" && hlClass,
-                  kind === "tag" && "rounded-[6px] bg-cherry px-[0.3em] text-[0.5em] font-semibold uppercase tracking-wider text-porcelain align-middle",
+                  kind === "tag" && "rounded-[6px] bg-cherry px-[0.3em] text-[0.5em] font-bold uppercase tracking-wider text-porcelain align-middle",
                   kind === "arrow" && arrowClass,
                 )}
                 style={{ ["--w" as string]: i }}
@@ -47,7 +47,7 @@ export function About() {
           <span>[ quiénes somos ]</span>
           <span>[ 01 ]</span>
         </div>
-        <p className="display display-slim mt-10 max-w-[1180px] text-[clamp(30px,4.6vw,72px)] leading-[1.04] text-wine md:mt-16">
+        <p className="display display-slim mt-10 max-w-[1180px] text-[clamp(28px,4vw,60px)] leading-[1.18] text-wine md:mt-16">
           <Masked
             text="[_Tu_Cherry_Studio_] es un estudio creativo construido sobre → propósito, intención y cercanía FOCO En un mundo lleno de ruido, ayudamos a las marcas a bajar el volumen, afinar su mensaje y decir exactamente lo que importa."
             mark={{ "[_Tu_Cherry_Studio_]": "hl", "→": "arrow", FOCO: "tag" }}
@@ -138,7 +138,7 @@ export function Manifesto() {
           <span>[ nuestra mirada ]</span>
           <span>[ 03 ]</span>
         </div>
-        <h2 id="manifiesto-title" className="display display-slim mt-10 text-[clamp(34px,6.2vw,100px)] leading-[0.98] md:mt-14">
+        <h2 id="manifiesto-title" className="display display-slim mt-10 text-[clamp(34px,6.2vw,100px)] leading-[1.06] md:mt-14">
           <Masked
             text="La mejor forma de entender el [_marketing_con_propósito_] es ver tu propia marca → a través de nuestra mirada."
             mark={{ "[_marketing_con_propósito_]": "hl", "→": "arrow" }}
@@ -148,10 +148,10 @@ export function Manifesto() {
           />
         </h2>
         <div className="mt-12 grid gap-6 md:mt-16 md:grid-cols-[1fr_minmax(0,420px)] md:items-end">
-          <span className="reveal inline-flex h-9 w-fit items-center rounded-full bg-butter px-4 text-sm font-semibold text-cherry">Cercanía · Propósito · Detalle</span>
+          <span className="reveal inline-flex h-9 w-fit items-center rounded-full bg-butter px-4 text-sm font-bold text-cherry">Cercanía · Propósito · Detalle</span>
           <div className="reveal">
             <p className="text-sage">Diseñamos, escribimos y medimos cada pieza para que tu marca diga lo que tiene que decir, a quien tiene que escucharla.</p>
-            <a href="#servicios" className="group mt-4 inline-flex items-center gap-2 font-semibold text-butter">
+            <a href="#servicios" className="group mt-4 inline-flex items-center gap-2 font-bold text-butter">
               <RandomLetterSwapForward label="Conoce cómo lo hacemos" /> <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" aria-hidden />
             </a>
           </div>

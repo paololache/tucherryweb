@@ -22,7 +22,7 @@ export function Process() {
           <ol className="flex flex-col gap-6">
             {STEPS.map((s, i) => (
               <li key={s.id} className="step relative rounded-[24px] bg-wine p-6 sm:p-8">
-                <span aria-hidden className="absolute -left-10 top-8 grid size-6 place-items-center rounded-full border-2 border-butter bg-cherry text-[11px] font-semibold">
+                <span aria-hidden className="absolute -left-10 top-8 grid size-6 place-items-center rounded-full border-2 border-butter bg-cherry text-[11px] font-bold">
                   {i + 1}
                 </span>
                 <p className="eyebrow text-sage">Paso {i + 1} · {s.label}</p>

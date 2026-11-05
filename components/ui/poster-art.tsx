@@ -32,7 +32,7 @@ export function PosterArt({ kind, className }: { kind: ServiceId; className?: st
         <>
           <path d="M40 260 V150 a70 70 0 0 1 140 0 V260Z" fill={C.cherry} />
           <rect x="210" y="60" width="150" height="150" rx="16" fill={C.porcelain} />
-          <text x="285" y="168" textAnchor="middle" fontFamily="Georgia, serif" fontWeight="700" fontSize="110" fill={C.cherry}>Aa</text>
+          <text x="285" y="168" textAnchor="middle" fontFamily="Figtree, Helvetica, Arial, sans-serif" fontWeight="700" fontSize="110" fill={C.cherry}>Aa</text>
           {[C.cherry, C.sage, C.cream].map((c, i) => (
             <rect key={i} x={210 + i * 54} y="226" width="42" height="42" rx="21" fill={c} stroke={C.cherry} strokeWidth="2" />
           ))}

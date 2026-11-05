@@ -30,7 +30,7 @@ export function Hero() {
         </div>
 
         <div className="hand-stage relative mt-6 md:mt-8">
-          <h1 id="hero-title" className="wave display relative z-10 cursor-default leading-[0.84] text-[clamp(64px,12.6vw,198px)]" aria-label="Marketing con propósito">
+          <h1 id="hero-title" className="wave display relative z-10 cursor-default text-[clamp(64px,12.6vw,198px)]" aria-label="Marketing con propósito">
             <span className="line-in block text-wine" style={d(0.15)}><SplitText text="Marketing" mode="chars" /></span>
             <span className="line-in block pl-[22%] text-wine sm:pl-[30%]" style={d(0.55)}><SplitText text="con" mode="chars" start={9} /></span>
             <span className="line-in line-accent hl block pl-[4%] text-cherry sm:pl-[9%]" style={d(0.95)}><SplitText text="propósito." mode="chars" start={12} /></span>
@@ -52,7 +52,7 @@ export function Hero() {
         <div className="relative z-30 mt-8 grid gap-6 md:mt-10 md:grid-cols-[1fr_auto] md:items-end">
           <div className="rise max-w-xl" style={d(1.7)}>
             <p className="text-lg text-muted">
-              <span className="font-semibold text-cherry">[ Tu Cherry Studio ]</span> crea marcas, contenido y campañas que conectan con las personas
+              <span className="font-bold text-cherry">[ Tu Cherry Studio ]</span> crea marcas, contenido y campañas que conectan con las personas
               y hacen crecer tu negocio, sin perder lo que lo hace tuyo.
             </p>
             <div role="group" aria-label="Servicios de interés" className="mt-5 flex flex-wrap gap-2">
@@ -81,12 +81,12 @@ export function Hero() {
             <button
               type="button"
               onClick={() => quote(picked)}
-              className="shine group inline-flex h-12 items-center gap-2 rounded-full bg-cherry px-6 font-semibold text-porcelain transition hover:bg-wine active:scale-[0.98]"
+              className="shine group inline-flex h-12 items-center gap-2 rounded-full bg-cherry px-6 font-bold text-porcelain transition hover:bg-wine active:scale-[0.98]"
             >
               <RandomLetterSwapForward label={picked.length ? `Cotizar ${picked.length} ${picked.length === 1 ? "servicio" : "servicios"}` : "Cuéntanos tu idea"} />
               <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" aria-hidden />
             </button>
-            <a href="#nosotros" className="group inline-flex h-12 items-center gap-2 rounded-full border border-cherry/40 px-5 font-semibold transition-colors hover:border-cherry hover:bg-cream">
+            <a href="#nosotros" className="group inline-flex h-12 items-center gap-2 rounded-full border border-cherry/40 px-5 font-bold transition-colors hover:border-cherry hover:bg-cream">
               <RandomLetterSwapForward label="Ver más" reverse={false} /> <ArrowDownRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:translate-y-0.5" aria-hidden />
             </a>
           </div>

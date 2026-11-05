@@ -48,7 +48,7 @@ export function Contact() {
 
         <form onSubmit={submit} className="rounded-[24px] bg-wine/60 p-6 ring-1 ring-butter/15 sm:p-8">
           <fieldset>
-            <legend className="font-semibold">¿Por dónde empezamos?</legend>
+            <legend className="font-bold">¿Por dónde empezamos?</legend>
             <div className="mt-3 grid gap-2 sm:grid-cols-3">
               {PLANS.map((p) => {
                 const on = plan?.id === p.id;
@@ -75,7 +75,7 @@ export function Contact() {
           </fieldset>
 
           <fieldset className="mt-6">
-            <legend className="font-semibold">o elige servicios</legend>
+            <legend className="font-bold">o elige servicios</legend>
             <div className="mt-3 flex flex-wrap gap-2">
               {SERVICES.map((s) => {
                 const on = picked.includes(s.id);
@@ -104,7 +104,7 @@ export function Contact() {
               <span className="text-sage">Aún sin elegir: conversamos y te ayudamos a decidir.</span>
             ) : (
               <>
-                {plan && <span className="font-semibold">Plan {plan.name} · </span>}
+                {plan && <span className="font-bold">Plan {plan.name} · </span>}
                 {picked.map((id) => serviceById(id).short).join(" + ")}
                 <span className="text-sage"> · te respondemos con una propuesta</span>
               </>
@@ -125,7 +125,7 @@ export function Contact() {
             <span className="text-sm text-sage">Cuéntanos un poco más</span>
             <textarea rows={3} value={form.mensaje} onChange={up("mensaje")} className={`${field} resize-none`} placeholder="¿Qué te gustaría lograr?" />
           </label>
-          <button type="submit" className="shine group mt-6 inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-butter font-semibold text-cherry transition hover:bg-cream active:scale-[0.99]">
+          <button type="submit" className="shine group mt-6 inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-butter font-bold text-cherry transition hover:bg-cream active:scale-[0.99]">
             <RandomLetterSwapForward label="Enviar por WhatsApp" /> <ArrowUpRight className="size-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" aria-hidden />
           </button>
         </form>

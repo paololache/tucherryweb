@@ -51,7 +51,7 @@ export function Header() {
         <div className="flex items-center gap-1">
           <a
             href="#contacto"
-            className="hidden h-11 items-center gap-2 rounded-full bg-cherry px-5 text-[15px] font-semibold text-porcelain transition hover:bg-wine active:scale-[0.98] sm:inline-flex"
+            className="hidden h-11 items-center gap-2 rounded-full bg-cherry px-5 text-[15px] font-bold text-porcelain transition hover:bg-wine active:scale-[0.98] sm:inline-flex"
           >
             <RandomLetterSwapForward label="Hablemos" /> <ArrowUpRight className="size-4" aria-hidden />
           </a>
@@ -78,7 +78,7 @@ export function Header() {
                 <RandomLetterSwapPingPong label={n.label} reverse={false} />
               </a>
             ))}
-            <a href="#contacto" onClick={() => setOpen(false)} className="mt-2 inline-flex h-12 items-center justify-center gap-2 rounded-full bg-butter font-semibold text-cherry">
+            <a href="#contacto" onClick={() => setOpen(false)} className="mt-2 inline-flex h-12 items-center justify-center gap-2 rounded-full bg-butter font-bold text-cherry">
               Hablemos <ArrowUpRight className="size-4" aria-hidden />
             </a>
           </nav>

@@ -23,7 +23,7 @@ export function Services() {
         <div className="mb-10 flex flex-col justify-between gap-4 md:flex-row md:items-end">
           <div>
             <p className="eyebrow text-muted">Servicios</p>
-            <h2 id="servicios-title" className="display display-slim mt-3 max-w-3xl text-[clamp(44px,6vw,88px)]"><SplitText text="Todo lo que tu marca necesita para crecer" /></h2>
+            <h2 id="servicios-title" className="display display-slim mt-3 max-w-3xl text-[clamp(44px,6vw,88px)] leading-[1.05]"><SplitText text="Todo lo que tu marca necesita para crecer" /></h2>
           </div>
           <p className="max-w-sm text-muted">Trabajamos por proyecto o como tu equipo de marketing mensual.</p>
         </div>
@@ -50,7 +50,7 @@ export function Services() {
                       className="group flex w-full items-center gap-4 py-5 text-left sm:gap-6"
                     >
                       <span className="w-6 shrink-0 text-sm text-muted tabular-nums">{String(i + 1).padStart(2, "0")}</span>
-                      <span className={cn("display display-slim flex-1 text-[clamp(30px,3.6vw,52px)] transition-[transform,color] duration-300", open ? "translate-x-2" : "text-cherry/55 group-hover:text-cherry")}>
+                      <span className={cn("display display-slim flex-1 text-[clamp(30px,3.6vw,52px)] leading-[1.05] transition-[transform,color] duration-300", open ? "translate-x-2" : "text-cherry/55 group-hover:text-cherry")}>
                         {s.title}
                       </span>
                       <span className={cn("grid size-10 shrink-0 place-items-center rounded-full border border-cherry/30 transition-transform duration-300", open && "rotate-45 border-cherry bg-cherry text-porcelain")} aria-hidden>
@@ -63,11 +63,11 @@ export function Services() {
                       <div className="grid gap-5 pb-6 pl-10 sm:grid-cols-[1.2fr_1fr] sm:pl-12">
                         <div>
                           <p className="text-[17px]">{s.description}</p>
-                          <p className="mt-3 text-sm text-muted"><span className="font-semibold text-cherry">Ideal para:</span> {s.idealFor}</p>
+                          <p className="mt-3 text-sm text-muted"><span className="font-bold text-cherry">Ideal para:</span> {s.idealFor}</p>
                           <button
                             type="button"
                             onClick={() => quote([s.id])}
-                            className="group mt-4 inline-flex h-11 items-center gap-2 rounded-full bg-cherry px-5 text-[15px] font-semibold text-porcelain transition hover:bg-wine active:scale-[0.98]"
+                            className="group mt-4 inline-flex h-11 items-center gap-2 rounded-full bg-cherry px-5 text-[15px] font-bold text-porcelain transition hover:bg-wine active:scale-[0.98]"
                           >
                             Cotizar {s.short.toLowerCase()} <ArrowUpRight className="size-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" aria-hidden />
                           </button>
@@ -95,7 +95,7 @@ export function Services() {
               <div key={active} className="absolute inset-0 animate-[rise_0.6s_cubic-bezier(0.22,1,0.36,1)_both] overflow-hidden"><div className="parallax-img absolute inset-0">
                 <ServiceVisual id={active} />
               </div></div>
-              <span className="absolute left-4 top-4 rounded-full bg-porcelain px-3 py-1 text-xs font-semibold">
+              <span className="absolute left-4 top-4 rounded-full bg-porcelain px-3 py-1 text-xs font-bold">
                 {SERVICES.find((s) => s.id === active)!.tagline}
               </span>
             </div>

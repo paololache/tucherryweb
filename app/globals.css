@@ -59,14 +59,17 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-/* Titulares: display family en negrita, sentence case */
-.display { font-family: var(--font-display); font-weight: 700; letter-spacing: -0.02em; word-spacing: 0.05em; line-height: 0.95; }
-/* Variante más fina y apretada (de Quiénes somos a Servicios): Figtree no tiene eje de ancho */
-.display-slim { font-weight: 500; letter-spacing: -0.035em; word-spacing: 0; }
+/* En @layer components para que las utilidades (leading-*, tracking-*, text-*) puedan ajustarlas */
+@layer components {
+  /* Titulares: display family en negrita, sentence case */
+  .display { font-family: var(--font-display); font-weight: 700; letter-spacing: -0.02em; word-spacing: 0.05em; line-height: 0.95; }
+  /* Variante más fina (de Quiénes somos a Servicios): Figtree no tiene eje de ancho */
+  .display-slim { font-weight: 500; letter-spacing: -0.025em; word-spacing: 0; }
+  /* Overline: único uso de mayúsculas, eco de la línea STUDIO del logotipo */
+  .eyebrow { font-family: var(--font-display); font-size: 12px; line-height: 16px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; }
+}
 h1, h2, h3, .display { text-wrap: balance; }
 p { text-wrap: pretty; }
-/* Overline: único uso de mayúsculas, eco de la línea STUDIO del logotipo */
-.eyebrow { font-family: var(--font-display); font-size: 12px; line-height: 16px; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; }
 
 /* Foco: 2px sólido, 2px de offset */
 :where(a, button, input, select, textarea, [tabindex]):focus-visible { outline: 2px solid var(--cherry); outline-offset: 2px; }
@@ -222,10 +225,12 @@ p { text-wrap: pretty; }
   @keyframes sink { to { filter: brightness(0.82); transform: scale(0.97); } }
 }
 
-/* 4. Texto con máscara: las palabras suben por líneas al entrar en pantalla */
+/* 4. Texto con máscara: las palabras suben por líneas al entrar en pantalla.
+   Termina en cuanto cada palabra entra entera: los paneles fijos (Stack) dejan de moverse
+   y una animación más larga se quedaba a medias con las últimas líneas cortadas. */
 .mask-words .mw { display: inline-block; }
 @supports (animation-timeline: view()) {
-  .mask-words .mw { animation: word-in linear both; animation-timeline: view(); animation-range: entry calc(10% + var(--w) * 1.2%) cover calc(30% + var(--w) * 1.2%); }
+  .mask-words .mw { animation: word-in linear both; animation-timeline: view(); animation-range: entry 0% entry 100%; }
 }
 
 /* 5. Galería: cada imagen aparece como una franja delgada que se abre */
