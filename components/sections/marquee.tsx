@@ -1,7 +1,10 @@
-const WORDS = ["Estrategia de marca", "Identidad visual", "Redes sociales", "Contenido", "Publicidad digital", "Web y landing pages", "Fotografía y video", "Marketing con propósito"];
+"use client";
+
+import { useStudio } from "@/components/studio-provider";
 
 // Franja en movimiento reutilizada de la plantilla. Se desplaza de izquierda a derecha, sin pausa.
 export function Marquee() {
+  const WORDS = useStudio().content.marquee;
   return (
     <div className="relative overflow-hidden bg-butter py-4 text-cherry" aria-label="Lo que hacemos">
       <div className="flex gap-8 [--duration:30s] [--gap:2rem]">

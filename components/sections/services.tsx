@@ -3,7 +3,7 @@
 import { ArrowUpRight, Check, Plus } from "lucide-react";
 import { useStudio } from "@/components/studio-provider";
 import { PosterArt } from "@/components/ui/poster-art";
-import { HERO_SLIDES, SERVICES, type ServiceId } from "@/lib/site";
+import { HERO_SLIDES, type ServiceId } from "@/lib/site";
 import { cn } from "@/lib/utils";
 import { SplitText } from "@/components/ui/split";
 
@@ -14,7 +14,8 @@ import { SplitText } from "@/components/ui/split";
 const photoOf = (id: ServiceId) => HERO_SLIDES.find((s) => s.service === id)?.src;
 
 export function Services() {
-  const { openRow, setOpenRow, quote } = useStudio();
+  const { openRow, setOpenRow, quote, content } = useStudio();
+  const SERVICES = content.services;
   const active = openRow ?? SERVICES[0].id;
 
   return (
@@ -23,9 +24,9 @@ export function Services() {
         <div className="mb-10 flex flex-col justify-between gap-4 md:flex-row md:items-end">
           <div>
             <p className="eyebrow text-muted">Servicios</p>
-            <h2 id="servicios-title" className="display display-slim mt-3 max-w-3xl text-[clamp(44px,6vw,88px)] leading-[1.05]"><SplitText text="Todo lo que tu marca necesita para crecer" /></h2>
+            <h2 id="servicios-title" className="display display-slim mt-3 max-w-3xl text-[clamp(44px,6vw,88px)] leading-[1.05]"><SplitText text={content.servicesHead.title} /></h2>
           </div>
-          <p className="max-w-sm text-muted">Trabajamos por proyecto o como tu equipo de marketing mensual.</p>
+          <p className="max-w-sm text-muted">{content.servicesHead.aside}</p>
         </div>
 
         <div className="grid gap-10 lg:grid-cols-[1.35fr_1fr]">

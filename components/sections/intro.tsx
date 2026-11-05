@@ -4,12 +4,12 @@ import { Fragment } from "react";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { useStudio } from "@/components/studio-provider";
 import { PosterArt } from "@/components/ui/poster-art";
-import { HERO_SLIDES, SERVICES, type ServiceId } from "@/lib/site";
+import { HERO_SLIDES, type MarkKind, type ServiceId } from "@/lib/site";
 import { cn } from "@/lib/utils";
 import { RandomLetterSwapForward } from "@/components/ui/random-letter-swap";
 
 /* Texto con máscara: cada palabra sube desde detrás de su línea al entrar en pantalla */
-function Masked({ text, className, mark, hlClass = "font-bold text-cherry", arrowClass = "text-cherry" }: { text: string; className?: string; mark?: Record<string, "hl" | "tag" | "arrow">; hlClass?: string; arrowClass?: string }) {
+function Masked({ text, className, mark, hlClass = "font-bold text-cherry", arrowClass = "text-cherry" }: { text: string; className?: string; mark?: Record<string, MarkKind>; hlClass?: string; arrowClass?: string }) {
   const words = text.split(" ");
   return (
     <span className={cn("mask-words", className)} aria-label={text} role="text">
@@ -40,6 +40,7 @@ function Masked({ text, className, mark, hlClass = "font-bold text-cherry", arro
 
 /* ───────── Panel 2: quiénes somos (tarjeta clara que sube sobre el hero) ───────── */
 export function About() {
+  const { about } = useStudio().content;
   return (
     <section id="nosotros" aria-label="Quiénes somos" className="panel min-h-[85svh] bg-[#fffefc] px-4 pb-16 pt-6 sm:px-6 md:pb-24">
       <div className="mx-auto max-w-[1320px]">
@@ -48,17 +49,10 @@ export function About() {
           <span>[ 01 ]</span>
         </div>
         <p className="display display-slim mt-10 max-w-[1180px] text-[clamp(28px,4vw,60px)] leading-[1.18] text-wine md:mt-16">
-          <Masked
-            text="[_Tu_Cherry_Studio_] es un estudio creativo construido sobre → propósito, intención y cercanía FOCO En un mundo lleno de ruido, ayudamos a las marcas a bajar el volumen, afinar su mensaje y decir exactamente lo que importa."
-            mark={{ "[_Tu_Cherry_Studio_]": "hl", "→": "arrow", FOCO: "tag" }}
-          />
+          <Masked text={about.text} mark={about.mark} />
         </p>
         <div className="mt-14 grid gap-6 md:mt-20 md:grid-cols-3">
-          {[
-            ["Cercanía", "Te hablamos claro y de tú a tú."],
-            ["Propósito", "Cada pieza tiene un porqué medible."],
-            ["Detalle", "Cuidamos lo que se ve y lo que no."],
-          ].map(([t, x], i) => (
+          {about.points.map(([t, x], i) => (
             <div key={t} className="reveal border-t border-cherry/20 pt-4" style={{ ["--d" as string]: `${i * 0.1}s` }}>
               <p className="text-[13px] text-muted">[ {String(i + 1).padStart(2, "0")} ]</p>
               <p className="display display-slim mt-1 text-[26px]">{t}</p>
@@ -76,7 +70,7 @@ const ORDER: ServiceId[] = ["estrategia", "branding", "redes", "ads", "web", "au
 const SPANS = ["md:col-span-3", "md:col-span-3", "md:col-span-6", "md:col-span-6", "md:col-span-3", "md:col-span-3"];
 
 export function Work() {
-  const { showService } = useStudio();
+  const { showService, content } = useStudio();
   return (
     <section id="trabajo" aria-labelledby="trabajo-title" className="panel relative isolate overflow-hidden bg-porcelain px-4 pb-14 pt-6 sm:px-6 md:pb-20">
       <svg aria-hidden className="pointer-events-none absolute inset-0 -z-10 h-full w-full opacity-60" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" fill="none">
@@ -86,14 +80,14 @@ export function Work() {
       <div className="mx-auto max-w-[1320px]">
         <div className="flex items-start justify-between">
           <h2 id="trabajo-title" className="display display-slim text-[clamp(44px,7vw,112px)] leading-[0.9] text-cherry">
-            <Masked text="Así trabajamos" />
+            <Masked text={content.work.title} />
           </h2>
           <span className="text-[13px] text-muted">[ 02 ]</span>
         </div>
 
         <ul className="mt-6 grid grid-cols-2 gap-2 md:mt-8 md:grid-cols-12 md:gap-3">
           {ORDER.map((id, i) => {
-            const s = SERVICES.find((x) => x.id === id)!;
+            const s = content.services.find((x) => x.id === id)!;
             const photo = HERO_SLIDES.find((x) => x.service === id)?.src;
             return (
               <li key={id} className={cn("strip", SPANS[i])} style={{ ["--d" as string]: `${(i % 3) * 0.08}s` }}>
@@ -121,7 +115,7 @@ export function Work() {
         <div className="mt-6 flex items-end justify-between gap-6 md:mt-8">
           <span className="text-[13px] text-muted">[ toca un servicio ]</span>
           <p className="display display-slim text-right text-[clamp(44px,7vw,112px)] leading-[0.9] text-cherry">
-            <Masked text="con tu marca" />
+            <Masked text={content.work.tail} />
           </p>
         </div>
       </div>
@@ -131,6 +125,7 @@ export function Work() {
 
 /* ───────── Panel 4: manifiesto en cherry ───────── */
 export function Manifesto() {
+  const { manifesto } = useStudio().content;
   return (
     <section aria-labelledby="manifiesto-title" className="panel on-cherry bg-cherry px-4 pb-14 pt-6 text-butter sm:px-6 md:pb-20">
       <div className="mx-auto max-w-[1320px]">
@@ -140,17 +135,17 @@ export function Manifesto() {
         </div>
         <h2 id="manifiesto-title" className="display display-slim mt-10 text-[clamp(34px,6.2vw,100px)] leading-[1.06] md:mt-14">
           <Masked
-            text="La mejor forma de entender el [_marketing_con_propósito_] es ver tu propia marca → a través de nuestra mirada."
-            mark={{ "[_marketing_con_propósito_]": "hl", "→": "arrow" }}
+            text={manifesto.text}
+            mark={manifesto.mark}
             hlClass="text-porcelain"
             arrowClass="text-sage"
             className="manifesto"
           />
         </h2>
         <div className="mt-12 grid gap-6 md:mt-16 md:grid-cols-[1fr_minmax(0,420px)] md:items-end">
-          <span className="reveal inline-flex h-9 w-fit items-center rounded-full bg-butter px-4 text-sm font-bold text-cherry">Cercanía · Propósito · Detalle</span>
+          <span className="reveal inline-flex h-9 w-fit items-center rounded-full bg-butter px-4 text-sm font-bold text-cherry">{manifesto.pill}</span>
           <div className="reveal">
-            <p className="text-sage">Diseñamos, escribimos y medimos cada pieza para que tu marca diga lo que tiene que decir, a quien tiene que escucharla.</p>
+            <p className="text-sage">{manifesto.body}</p>
             <a href="#servicios" className="group mt-4 inline-flex items-center gap-2 font-bold text-butter">
               <RandomLetterSwapForward label="Conoce cómo lo hacemos" /> <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" aria-hidden />
             </a>

@@ -3,7 +3,6 @@
 import { ArrowDownRight, ArrowRight, Check } from "lucide-react";
 import { useStudio } from "@/components/studio-provider";
 import { SplitText } from "@/components/ui/split";
-import { SERVICES } from "@/lib/site";
 import { cn } from "@/lib/utils";
 import { RandomLetterSwapForward } from "@/components/ui/random-letter-swap";
 
@@ -15,7 +14,11 @@ const d = (s: number) => ({ ["--d" as string]: `${s}s` });
  * Inspirado en la referencia "Noiseless Agency", con la identidad de Tu Cherry.
  */
 export function Hero() {
-  const { picked, toggle, quote } = useStudio();
+  const { content, picked, toggle, quote } = useStudio();
+  const { tags, title, intro } = content.hero;
+  // índice de la primera letra de cada línea, para encadenar la animación letra a letra
+  const len = (t: string) => t.replace(/ /g, "").length;
+  const starts = [0, len(title[0]), len(title[0]) + len(title[1])];
 
   return (
     <section id="inicio" aria-labelledby="hero-title" className="relative isolate min-h-[100svh] overflow-hidden bg-porcelain px-4 pb-16 pt-24 sm:px-6 md:pt-28">
@@ -24,16 +27,16 @@ export function Hero() {
       <div className="relative mx-auto max-w-[1320px]">
         {/* fila de etiquetas, como en la referencia */}
         <div className="rise flex items-center justify-between text-[13px] text-muted" style={d(1.6)}>
-          <span className="inline-flex items-center gap-2"><span className="pulse size-2 rounded-full bg-cherry" aria-hidden /> [ estudio de marketing ]</span>
-          <span className="hidden sm:inline">[ Lima, Perú ]</span>
-          <span>[ desde Lima para tu marca ]</span>
+          <span className="inline-flex items-center gap-2"><span className="pulse size-2 rounded-full bg-cherry" aria-hidden /> {tags[0]}</span>
+          <span className="hidden sm:inline">{tags[1]}</span>
+          <span>{tags[2]}</span>
         </div>
 
         <div className="hand-stage relative mt-6 md:mt-8">
-          <h1 id="hero-title" className="wave display relative z-10 cursor-default text-[clamp(64px,12.6vw,198px)]" aria-label="Marketing con propósito">
-            <span className="line-in block text-wine" style={d(0.15)}><SplitText text="Marketing" mode="chars" /></span>
-            <span className="line-in block pl-[22%] text-wine sm:pl-[30%]" style={d(0.55)}><SplitText text="con" mode="chars" start={9} /></span>
-            <span className="line-in line-accent hl block pl-[4%] text-cherry sm:pl-[9%]" style={d(0.95)}><SplitText text="propósito." mode="chars" start={12} /></span>
+          <h1 id="hero-title" className="wave display relative z-10 cursor-default text-[clamp(64px,12.6vw,198px)]" aria-label={title.join(" ")}>
+            <span className="line-in block text-wine" style={d(0.15)}><SplitText text={title[0]} mode="chars" /></span>
+            <span className="line-in block pl-[22%] text-wine sm:pl-[30%]" style={d(0.55)}><SplitText text={title[1]} mode="chars" start={starts[1]} /></span>
+            <span className="line-in line-accent hl block pl-[4%] text-cherry sm:pl-[9%]" style={d(0.95)}><SplitText text={title[2]} mode="chars" start={starts[2]} /></span>
           </h1>
 
           {/* mano recortada: se monta sobre el titular */}
@@ -52,11 +55,10 @@ export function Hero() {
         <div className="relative z-30 mt-8 grid gap-6 md:mt-10 md:grid-cols-[1fr_auto] md:items-end">
           <div className="rise max-w-xl" style={d(1.7)}>
             <p className="text-lg text-muted">
-              <span className="font-bold text-cherry">[ Tu Cherry Studio ]</span> crea marcas, contenido y campañas que conectan con las personas
-              y hacen crecer tu negocio, sin perder lo que lo hace tuyo.
+              <span className="font-bold text-cherry">[ Tu Cherry Studio ]</span> {intro}
             </p>
             <div role="group" aria-label="Servicios de interés" className="mt-5 flex flex-wrap gap-2">
-              {SERVICES.map((s) => {
+              {content.services.map((s) => {
                 const on = picked.includes(s.id);
                 return (
                   <button

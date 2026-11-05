@@ -1,9 +1,11 @@
 "use client";
 
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from "react";
-import { SERVICES, type ServiceId } from "@/lib/site";
+import type { PageContent, ServiceId } from "@/lib/site";
 
 type Ctx = {
+  /** textos y datos de la página actual (portada o vertical) */
+  content: PageContent;
   /** servicios marcados para el brief (hero y contacto comparten esta lista) */
   picked: ServiceId[];
   toggle: (id: ServiceId) => void;
@@ -21,7 +23,8 @@ type Ctx = {
 
 const StudioCtx = createContext<Ctx | null>(null);
 
-export function StudioProvider({ children }: { children: React.ReactNode }) {
+export function StudioProvider({ content, children }: { content: PageContent; children: React.ReactNode }) {
+  const SERVICES = content.services;
   const [picked, setPicked] = useState<ServiceId[]>([]);
   const [focus, setFocus] = useState<ServiceId | null>(null);
   const [openRow, setOpenRowState] = useState<ServiceId | null>(SERVICES[0].id);
@@ -37,7 +40,7 @@ export function StudioProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     const m = window.location.hash.match(/^#servicio=(.+)$/);
     if (m && SERVICES.some((s) => s.id === m[1])) showService(m[1] as ServiceId);
-  }, [showService]);
+  }, [showService, SERVICES]);
 
   const toggle = useCallback((id: ServiceId) => {
     setPicked((p) => {
@@ -53,8 +56,8 @@ export function StudioProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   const value = useMemo(
-    () => ({ picked, toggle, setPicked, focus, quote, openRow, setOpenRow, showService }),
-    [picked, toggle, focus, quote, openRow, setOpenRow, showService],
+    () => ({ content, picked, toggle, setPicked, focus, quote, openRow, setOpenRow, showService }),
+    [content, picked, toggle, focus, quote, openRow, setOpenRow, showService],
   );
 
   return <StudioCtx.Provider value={value}>{children}</StudioCtx.Provider>;

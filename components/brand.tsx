@@ -1,12 +1,5 @@
 import { cn } from "@/lib/utils";
 
-export const NAV = [
-  { label: "Servicios", href: "#servicios" },
-  { label: "Proceso", href: "#proceso" },
-  { label: "Estudio", href: "#estudio" },
-  { label: "Contacto", href: "#contacto" },
-];
-
 /**
  * Logotipo tipográfico ("Tu Cherry" + línea STUDIO) mientras no se carguen
  * los PNG oficiales. No redibuja el isologo.

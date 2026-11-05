@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { ArrowUpRight, Check, Mail, MessageCircle } from "lucide-react";
 import { useStudio } from "@/components/studio-provider";
-import { PLANS, SERVICES, serviceById, site } from "@/lib/site";
+import { site, type ServiceId } from "@/lib/site";
 import { cn } from "@/lib/utils";
 import { SplitText } from "@/components/ui/split";
 import { RandomLetterSwapForward } from "@/components/ui/random-letter-swap";
@@ -13,7 +13,9 @@ import { RandomLetterSwapForward } from "@/components/ui/random-letter-swap";
  * el resumen de abajo se actualiza en vivo. Envía por WhatsApp (sin backend).
  */
 export function Contact() {
-  const { picked, toggle, setPicked } = useStudio();
+  const { picked, toggle, setPicked, content } = useStudio();
+  const { services: SERVICES, plans: PLANS } = content;
+  const serviceById = (id: ServiceId) => SERVICES.find((s) => s.id === id)!;
   const [form, setForm] = useState({ nombre: "", negocio: "", mensaje: "" });
   const up = (k: keyof typeof form) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => setForm((f) => ({ ...f, [k]: e.target.value }));
 
@@ -23,7 +25,7 @@ export function Contact() {
   const submit = (e: React.FormEvent) => {
     e.preventDefault();
     const servicios = picked.length ? picked.map((id) => serviceById(id).title).join(", ") : "Aún no lo sé, quiero conversar";
-    const msg = `Hola, soy ${form.nombre}${form.negocio ? ` de ${form.negocio}` : ""}.\n${plan ? `Plan: ${plan.name}.\n` : ""}Me interesa: ${servicios}.\n${form.mensaje}`.trim();
+    const msg = `${content.contact.source ? `${content.contact.source}\n` : ""}Hola, soy ${form.nombre}${form.negocio ? ` de ${form.negocio}` : ""}.\n${plan ? `Plan: ${plan.name}.\n` : ""}Me interesa: ${servicios}.\n${form.mensaje}`.trim();
     window.open(`https://wa.me/${site.whatsapp}?text=${encodeURIComponent(msg)}`, "_blank", "noopener");
   };
 
@@ -34,8 +36,8 @@ export function Contact() {
       <div className="mx-auto grid max-w-[1320px] gap-12 lg:grid-cols-[1fr_1.15fr]">
         <div className="reveal">
           <p className="eyebrow text-sage">Contacto</p>
-          <h2 id="contacto-title" className="display mt-3 text-[clamp(48px,7vw,104px)]"><SplitText text="¿Hacemos crecer tu marca?" /></h2>
-          <p className="mt-5 max-w-md text-lg text-sage">Elige un punto de partida o arma tu combinación. Te respondemos con una propuesta a tu medida.</p>
+          <h2 id="contacto-title" className="display mt-3 text-[clamp(48px,7vw,104px)]"><SplitText text={content.contact.title} /></h2>
+          <p className="mt-5 max-w-md text-lg text-sage">{content.contact.text}</p>
           <div className="mt-8 flex flex-col gap-3">
             <a href={`mailto:${site.email}`} className="inline-flex items-center gap-3 self-start text-lg hover:underline">
               <Mail className="size-5" aria-hidden /> {site.email}

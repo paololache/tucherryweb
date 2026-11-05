@@ -3,11 +3,13 @@
 import { useEffect, useState } from "react";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { Logo, NAV } from "@/components/brand";
+import { Logo } from "@/components/brand";
+import { useStudio } from "@/components/studio-provider";
 import { RandomLetterSwapForward, RandomLetterSwapPingPong } from "@/components/ui/random-letter-swap";
 
 // Header fijo con menú móvil — base del template (adaptado de 21st "Agency Hero Section").
 export function Header() {
+  const NAV = useStudio().content.nav;
   const [scrolled, setScrolled] = useState(false);
   const [hidden, setHidden] = useState(false);
   const [open, setOpen] = useState(false);
